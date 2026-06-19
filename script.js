@@ -1,47 +1,71 @@
-// Back To Top Button
+// Smooth scrolling for navigation links
 
-let topBtn = document.getElementById("topBtn");
+document.querySelectorAll("nav a").forEach(link=>{
 
-window.onscroll = function(){
+link.addEventListener("click",function(e){
 
-if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
+e.preventDefault();
 
-topBtn.style.display="block";
+const target=document.querySelector(this.getAttribute("href"));
 
-}else{
-
-topBtn.style.display="none";
-
-}
-
-}
-
-topBtn.onclick=function(){
-
-window.scrollTo({
-
-top:0,
+target.scrollIntoView({
 
 behavior:"smooth"
 
 });
-// Fade Animation
-
-const observer = new IntersectionObserver((entries)=>{
-
-entries.forEach(entry=>{
-
-if(entry.isIntersecting){
-
-entry.target.classList.add("show");
-
-}
 
 });
 
 });
 
-const hiddenElements=document.querySelectorAll(".hidden");
+// Change navbar on scroll
 
-hiddenElements.forEach((el)=>observer.observe(el));
+window.addEventListener("scroll",()=>{
+
+const header=document.querySelector("header");
+
+if(window.scrollY>50){
+
+header.style.background="#020617";
+header.style.boxShadow="0 5px 15px rgba(0,0,0,.2)";
+
+}else{
+
+header.style.background="#0F172A";
+header.style.boxShadow="none";
+
 }
+
+});
+// Active Navigation
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
