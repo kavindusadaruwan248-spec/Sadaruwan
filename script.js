@@ -1,17 +1,29 @@
-const buttons = document.querySelectorAll(".card button");
+// Back To Top Button
 
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
+let topBtn = document.getElementById("topBtn");
 
-        const title = button.parentElement.querySelector("h3").innerText;
-        const description = button.parentElement.querySelector("p").innerText;
+window.onscroll = function(){
 
-        alert(
-            title +
-            "\n\n" +
-            description +
-            "\n\nSummary, My Opinion and Reflection will be added here."
-        );
+if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200){
 
-    });
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+}
+
+topBtn.onclick=function(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
 });
+
+}
