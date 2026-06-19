@@ -38,14 +38,43 @@ header{
 }
 
 nav a{
-    color:#fff;
-    text-decoration:none;
-    margin-left:25px;
-    transition:0.3s;
+
+position:relative;
+
+text-decoration:none;
+
+color:white;
+
+font-weight:500;
+
+transition:.3s;
+
 }
 
-nav a:hover{
-    color:#38bdf8;
+nav a::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-6px;
+
+width:0;
+
+height:3px;
+
+background:#38BDF8;
+
+transition:.3s;
+
+}
+
+nav a:hover::after{
+
+width:100%;
+
 }
 
 /* Hero */
@@ -74,32 +103,73 @@ nav a:hover{
 }
 
 .btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 40px;
-    background:white;
-    color:#2563eb;
-    text-decoration:none;
-    border-radius:30px;
-    font-weight:600;
-    transition:0.3s;
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:15px 40px;
+
+border-radius:50px;
+
+background:white;
+
+color:#2563EB;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.3s;
+
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+
 }
 
 .btn:hover{
-    background:#0f172a;
-    color:white;
+
+transform:translateY(-5px);
+
+background:#0F172A;
+
+color:white;
+
 }
 
 /* Sections */
 section{
     padding:100px 10%;
 }
-
 section h2{
-    text-align:center;
-    margin-bottom:30px;
-    color:#0f172a;
-    font-size:32px;
+
+font-size:38px;
+
+text-align:center;
+
+margin-bottom:40px;
+
+color:#2563EB;
+
+position:relative;
+
+}
+
+section h2::after{
+
+content:"";
+
+display:block;
+
+width:80px;
+
+height:4px;
+
+background:#38BDF8;
+
+margin:12px auto;
+
+border-radius:20px;
+
 }
 
 /* Cards */
@@ -118,7 +188,11 @@ section h2{
 }
 
 .card:hover{
-    transform:translateY(-8px);
+
+transform:translateY(-10px) scale(1.03);
+
+box-shadow:0 15px 30px rgba(0,0,0,.15);
+
 }
 
 /* Portfolio */
